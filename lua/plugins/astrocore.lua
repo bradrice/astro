@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -49,7 +49,7 @@ return {
         -- navigate buffer tabs with `H` and `L`
         L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-
+        --
         -- mappings seen under group name "Buffer"
         ["<Leader>bD"] = {
           function()
@@ -71,4 +71,6 @@ return {
       },
     },
   },
+  vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv"),
+  vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv"),
 }
