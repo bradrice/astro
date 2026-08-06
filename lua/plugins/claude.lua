@@ -102,6 +102,10 @@ return {
     keys = {
       -- Map a key to toggle Claude terminal interface easily
       { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude Code" },
+      -- The plugin ships a `resume` command variant but, unlike `continue` and
+      -- `verbose`, no keymap for it. Bound here rather than via
+      -- keymaps.toggle.variants so it works before the plugin has loaded.
+      { "<leader>ar", "<cmd>ClaudeCodeResume<cr>", desc = "Resume Claude Code session" },
       { "<leader>af", send_file_ref(false), desc = "Send file path to Claude" },
       { "<leader>al", send_file_ref(true), desc = "Send file path + line to Claude" },
       { "<leader>as", send_selection, mode = "x", desc = "Send selection to Claude" },

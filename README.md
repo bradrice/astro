@@ -43,6 +43,7 @@ Configured in [`lua/plugins/claude.lua`](lua/plugins/claude.lua) on top of
 | Key          | Mode   | Action                                                                       |
 | ------------ | ------ | ---------------------------------------------------------------------------- |
 | `<leader>ac` | Normal | Toggle the Claude Code terminal                                              |
+| `<leader>ar` | Normal | Resume a previous session (`:ClaudeCodeResume`)                              |
 | `<leader>af` | Normal | Send the current file to Claude as `@path`                                   |
 | `<leader>al` | Normal | Send the current file as `@path (line N)` using the cursor line              |
 | `<leader>as` | Visual | Send the selection as a fenced code block tagged with `@path (lines A-B)`    |
