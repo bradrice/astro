@@ -32,3 +32,42 @@ git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
 ```shell
 nvim
 ```
+
+## ⌨️ Claude Code Keymaps
+
+Configured in [`lua/plugins/claude.lua`](lua/plugins/claude.lua) on top of
+[greggh/claude-code.nvim](https://github.com/greggh/claude-code.nvim).
+
+### Custom mappings
+
+| Key          | Mode   | Action                                                                       |
+| ------------ | ------ | ---------------------------------------------------------------------------- |
+| `<leader>ac` | Normal | Toggle the Claude Code terminal                                              |
+| `<leader>af` | Normal | Send the current file to Claude as `@path`                                   |
+| `<leader>al` | Normal | Send the current file as `@path (line N)` using the cursor line              |
+| `<leader>as` | Visual | Send the selection as a fenced code block tagged with `@path (lines A-B)`    |
+
+The send mappings open the terminal if it is closed and leave it alone if it is
+already visible. Paths are relative to the git root, matching the CLI's working
+directory (`git.use_git_root` defaults to `true`). Text is pasted into the prompt
+but **not submitted**, so you type your question after it.
+
+### Plugin defaults
+
+These come from the plugin itself, not from this config.
+
+| Key          | Mode            | Action                                    |
+| ------------ | --------------- | ----------------------------------------- |
+| `<C-,>`      | Normal/Terminal | Toggle the Claude Code terminal           |
+| `<leader>cC` | Normal          | Open Claude with `--continue`             |
+| `<leader>cV` | Normal          | Open Claude with `--verbose`              |
+| `<C-h/j/k/l>`| Terminal        | Move to the window left/down/up/right     |
+| `<C-f>`      | Terminal        | Scroll a full page down                   |
+| `<C-b>`      | Terminal        | Scroll a full page up                     |
+
+### Commands
+
+`:ClaudeCode` (toggle), `:ClaudeCodeContinue`, `:ClaudeCodeResume`,
+`:ClaudeCodeVerbose`, `:ClaudeCodeVersion`.
+
+Note there is no `:ClaudeCodeToggle` — the toggle command is plain `:ClaudeCode`.
