@@ -99,7 +99,13 @@ return {
       "nvim-lua/plenary.nvim", -- Required for git operations
     },
     -- Lazy load on commands
-    cmd = { "ClaudeCode", "ClaudeCodeContinue", "ClaudeCodeResume", "ClaudeCodeVerbose" },
+    cmd = {
+      "ClaudeCode",
+      "ClaudeCodeContinue",
+      "ClaudeCodeResume",
+      "ClaudeCodeVerbose",
+      "ClaudeCodeVersion",
+    },
     keys = {
       -- Map a key to toggle Claude terminal interface easily
       { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude Code" },
