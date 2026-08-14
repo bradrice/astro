@@ -1,0 +1,7 @@
+# Normalize every text file to LF, both in the repository and in the working
+# tree, so the macOS and Windows checkouts of this config stay byte-identical.
+#
+# Without this, Windows (`core.autocrlf=true`) checks these files out with CRLF
+# while Neovim rewrites lazy-lock.json with LF, which surfaces as a phantom
+# "modified" file that never has any content change.
+* text=auto eol=lf
