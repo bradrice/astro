@@ -1,8 +1,43 @@
 # AstroNvim Template
 
-**NOTE:** This is for AstroNvim v5+
-
 A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+
+## 📌 Versions
+
+| | |
+| --- | --- |
+| Neovim | **0.12.4** (Homebrew: `brew upgrade neovim`) |
+| AstroNvim | **v6.0.7**, tracked as `version = "^6"` in [`lua/lazy_setup.lua`](lua/lazy_setup.lua) |
+| Plugins | pinned by `lazy-lock.json`; while a `version` is tracked, AstroNvim additionally pins its own tested plugin set via its `lazy_snapshot.lua` |
+
+AstroNvim v6 requires **Neovim 0.11+ stable** — explicitly *not* nightly. It dropped
+0.10 support, and on 0.11+ it disables `Comment.nvim` and `nvim-ufo` in favour of
+Neovim's native `gc` commenting and folds.
+
+### Upgrading AstroNvim
+
+Bump the `version` constraint in `lua/lazy_setup.lua`, then run `:Lazy sync`
+**twice**. The first pass updates AstroNvim itself and brings in its new
+`lazy_snapshot.lua`; the second applies the pinned plugin set that snapshot
+specifies. After only one pass AstroNvim reports the new major while
+`astrocore`/`astrolsp`/`astroui` are still on the old one — v6 needs AstroLSP v4,
+so this matters. Afterwards `:Lazy clean` removes plugins the new major no longer
+uses.
+
+### Bringing another machine up to date
+
+```shell
+git pull
+brew upgrade neovim                    # if it is also behind
+nvim --headless "+Lazy! sync" +qa      # run twice, per above
+nvim --headless "+Lazy! clean" +qa
+```
+
+`:Lazy restore` on its own is **not** enough: it pins already-installed plugins to
+the lockfile but does not install missing ones, so a machine coming from an older
+major ends up without the new major's plugins (going to v5 that was `blink.cmp`,
+`snacks.nvim` and `mini.icons`). Use `install` or `sync` first, then `restore` if
+you want to land exactly on the committed pins.
 
 ## 🛠️ Installation
 
