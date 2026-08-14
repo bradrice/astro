@@ -1,6 +1,6 @@
 # AstroNvim Template
 
-**NOTE:** This is for AstroNvim v4+
+**NOTE:** This is for AstroNvim v5+
 
 A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 
@@ -26,6 +26,9 @@ You can also just clone this repository directly if you do not want to track you
 ```shell
 git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
 ```
+
+On Windows the config lives in `%LOCALAPPDATA%\nvim` instead (`~/.config/nvim` is only read
+when `XDG_CONFIG_HOME` is set).
 
 #### Start Neovim
 
